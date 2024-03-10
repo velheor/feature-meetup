@@ -2,8 +2,7 @@ package com.intexsoft.meetup.examples.pattern;
 
 public class WorkWeekDaySwitchExample {
     public static void main(String[] args) {
-        WorkWeekDay day = WorkWeekDay.WEDNESDAY; // Example day
-        handleDay_old(day);
+        System.out.println(formatterPatternSwitch(1L));
     }
 
     public static void handleDay_old(WorkWeekDay animal) {
@@ -12,7 +11,7 @@ public class WorkWeekDaySwitchExample {
             case MONDAY:
             case TUESDAY:
             case THURSDAY: {
-                dayDescription = "Just another work day";
+                dayDescription = "Just another work day.";
                 break;
             }
             case WEDNESDAY: {
@@ -20,11 +19,11 @@ public class WorkWeekDaySwitchExample {
                 break;
             }
             case FRIDAY: {
-                dayDescription = "THIS IS FRIDAY!";
+                dayDescription = "IT IS FRIDAY!";
                 break;
             }
             default: {
-                dayDescription = "It is weekend!";
+                dayDescription = "IT IS WEEKEND!";
             }
         }
         System.out.println(dayDescription);
@@ -34,7 +33,7 @@ public class WorkWeekDaySwitchExample {
         String dayDescription;
         switch (animal) {
             case MONDAY, TUESDAY, THURSDAY: {
-                dayDescription = "Just another work day";
+                dayDescription = "Just another work day.";
                 break;
             }
             case WEDNESDAY: {
@@ -46,7 +45,7 @@ public class WorkWeekDaySwitchExample {
                 break;
             }
             default: {
-                dayDescription = "It is weekend!";
+                dayDescription = "IT IS WEEKEND!";
             }
             System.out.println(dayDescription);
         }
@@ -55,34 +54,44 @@ public class WorkWeekDaySwitchExample {
     public static void handleDay_step_2(WorkWeekDay animal) {
         String dayDescription;
         switch (animal) {
-            case MONDAY, TUESDAY, THURSDAY -> dayDescription = "Just another work day";
+            case MONDAY, TUESDAY, THURSDAY -> dayDescription = "Just another work day.";
             case WEDNESDAY -> dayDescription = "It is small friday!";
             case FRIDAY -> dayDescription = "IT IS FRIDAY!";
-            default -> dayDescription = "It is weekend!";
+            default -> dayDescription = "IT IS WEEKEND!";
         }
         System.out.println(dayDescription);
     }
 
     public static void handleDay_step_3(WorkWeekDay animal) {
         String dayDescription = switch (animal) {
-            case MONDAY, TUESDAY, THURSDAY -> "Just another work day";
+            case MONDAY, TUESDAY, THURSDAY -> "Just another work day.";
             case WEDNESDAY -> "It is small friday!";
             case FRIDAY -> "IT IS FRIDAY!";
-            default -> "It is weekend!";
+            default -> "IT IS WEEKEND!";
         };
         System.out.println(dayDescription);
     }
 
     public static void handleDay_step_0_1(WorkWeekDay animal) {
         String dayDescription = switch (animal) {
-            case MONDAY, TUESDAY, THURSDAY -> "Just another work day";
+            case MONDAY, TUESDAY, THURSDAY -> "Just another work day.";
             case WEDNESDAY -> {
-                System.out.println("But you still need to work");
+                System.out.println("But you still need to work.");
                 yield "It is small friday!";
             }
             case FRIDAY -> "IT IS FRIDAY!";
-            default -> "It is weekend!";
+            default -> "IT IS WEEKEND!";
         };
         System.out.println(dayDescription);
+    }
+
+    static String formatterPatternSwitch(Object o) {
+        return switch (o) {
+            case Integer i -> String.format("int %d", i);
+            case Long l    -> String.format("long %d", l);
+            case Double d  -> String.format("double %f", d);
+            case String s  -> String.format("String %s", s);
+            default        -> o.toString();
+        };
     }
 }

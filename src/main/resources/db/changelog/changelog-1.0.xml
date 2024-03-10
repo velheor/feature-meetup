@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Insert persons -->
+    <changeSet id="1" author="vladislav.atsman">
+        <insert tableName="person">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="John Doe"/>
+            <column name="address_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="person">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Jane Doe"/>
+            <column name="address_id" valueNumeric="2"/>
+        </insert>
+
+        <!-- Insert addresses -->
+        <insert tableName="address">
+            <column name="street" value="123 Main St"/>
+            <column name="city" value="Springfield"/>
+        </insert>
+        <insert tableName="address">
+            <column name="street" value="456 Elm St"/>
+            <column name="city" value="Shelbyville"/>
+        </insert>
+
+        <!-- Insert phones -->
+        <insert tableName="phone">
+            <column name="number" value="555-1234"/>
+            <column name="person_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="phone">
+            <column name="number" value="555-5678"/>
+            <column name="person_id" valueNumeric="2"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

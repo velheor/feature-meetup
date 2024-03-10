@@ -3,7 +3,7 @@ package com.intexsoft.meetup.examples.pattern;
 public class WorkWeekDaySwitchExample {
     public static void main(String[] args) {
         WorkWeekDay day = WorkWeekDay.WEDNESDAY; // Example day
-        handleDay(day);
+        handleDay_old(day);
     }
 
     public static void handleDay_old(WorkWeekDay animal) {
@@ -24,9 +24,10 @@ public class WorkWeekDaySwitchExample {
                 break;
             }
             default: {
-                System.out.println("It is weekend!");
+                dayDescription = "It is weekend!";
             }
         }
+        System.out.println(dayDescription);
     }
 
     public static void handleDay_step_1(WorkWeekDay animal) {
@@ -45,8 +46,9 @@ public class WorkWeekDaySwitchExample {
                 break;
             }
             default: {
-                System.out.println("It is weekend!");
+                dayDescription = "It is weekend!";
             }
+            System.out.println(dayDescription);
         }
     }
 
@@ -58,6 +60,7 @@ public class WorkWeekDaySwitchExample {
             case FRIDAY -> dayDescription = "IT IS FRIDAY!";
             default -> dayDescription = "It is weekend!";
         }
+        System.out.println(dayDescription);
     }
 
     public static void handleDay_step_3(WorkWeekDay animal) {
@@ -67,6 +70,7 @@ public class WorkWeekDaySwitchExample {
             case FRIDAY -> "IT IS FRIDAY!";
             default -> "It is weekend!";
         };
+        System.out.println(dayDescription);
     }
 
     public static void handleDay_step_0_1(WorkWeekDay animal) {
@@ -79,5 +83,6 @@ public class WorkWeekDaySwitchExample {
             case FRIDAY -> "IT IS FRIDAY!";
             default -> "It is weekend!";
         };
+        System.out.println(dayDescription);
     }
 }

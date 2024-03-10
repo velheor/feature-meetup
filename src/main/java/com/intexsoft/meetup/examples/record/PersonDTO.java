@@ -31,9 +31,6 @@ public record PersonDTO(int age, String name) {
 
     
     private static double calculateSuccessScore(Person p) {
-        
-        
+        return 0;
     }
-
-
 }

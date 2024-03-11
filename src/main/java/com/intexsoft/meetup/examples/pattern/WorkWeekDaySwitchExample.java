@@ -2,7 +2,12 @@ package com.intexsoft.meetup.examples.pattern;
 
 public class WorkWeekDaySwitchExample {
     public static void main(String[] args) {
-        System.out.println(formatterPatternSwitch(1L));
+        WorkWeekDay sunday = WorkWeekDay.SUNDAY;
+        handleDay_old(sunday);
+        handleDay_step_1(sunday);
+        handleDay_step_2(sunday);
+        handleDay_step_3(sunday);
+        handleDay_step_0_1(sunday);
     }
 
     public static void handleDay_old(WorkWeekDay animal) {
@@ -54,7 +59,8 @@ public class WorkWeekDaySwitchExample {
     public static void handleDay_step_2(WorkWeekDay animal) {
         String dayDescription;
         switch (animal) {
-            case MONDAY, TUESDAY, THURSDAY -> dayDescription = "Just another work day.";
+            case MONDAY, TUESDAY, THURSDAY 
+                    -> dayDescription = "Just another work day.";
             case WEDNESDAY -> dayDescription = "It is small friday!";
             case FRIDAY -> dayDescription = "IT IS FRIDAY!";
             default -> dayDescription = "IT IS WEEKEND!";
@@ -84,6 +90,8 @@ public class WorkWeekDaySwitchExample {
         };
         System.out.println(dayDescription);
     }
+    
+    public static void handleDay_step_1_2(WorkWeekDay animal) {}
 
     static String formatterPatternSwitch(Object o) {
         return switch (o) {

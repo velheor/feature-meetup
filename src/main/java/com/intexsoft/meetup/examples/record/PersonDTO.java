@@ -18,7 +18,13 @@ public record PersonDTO(int age, String name) {
 
     
     public static void main(String[] args) {
-        record PersonAndLuckScore(Person person, double luckScore) {}
+        String[] args1 = {"a", "b", "c", "d", "e", "f", "r", "t", "f"};
+        record PersonAndLuckScore(Person person, double luckScore) {
+            void test(){
+                System.out.println();
+            }
+        }
+        PersonAndLuckScore personAndLuckScore = new PersonAndLuckScore(new Person(), 10);
         
         List<Person> persons = new ArrayList<>();
         persons.stream()
@@ -27,6 +33,10 @@ public record PersonDTO(int age, String name) {
                 .map(PersonAndLuckScore::person)
                 .limit(10)
                 .toList();
+    }
+
+    public static void test(String[] args) {
+        
     }
 
     
